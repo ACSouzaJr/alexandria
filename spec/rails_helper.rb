@@ -25,6 +25,7 @@ require 'rspec/rails'
 require 'rspec/rails'
 require 'webmock/rspec'
 require 'database_cleaner/active_record'
+require 'active_storage_validations/matchers'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
@@ -90,4 +91,7 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+
+  # Configure ActiveStorage Validator
+  config.include ActiveStorageValidations::Matchers
 end
